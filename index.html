@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Pontos</title>
+    <script>
+      function calcular() {
+        var valorTransacao = parseFloat(document.getElementById("valorTransacao").value);
+        var numeroPontos = parseInt(document.getElementById("numeroPontos").value);
+        var valorPorPonto = valorTransacao / numeroPontos;
+        var limiteValorPorPonto = 35 / 1000; // R$ 35 por milhar
+        
+        if (valorPorPonto >= limiteValorPorPonto) {
+          document.getElementById("resultado").innerText = "Vale a pena! (Valor por ponto: R$ " + valorPorPonto.toFixed(4) + ")";
+        } else {
+          document.getElementById("resultado").innerText = "Não vale a pena. (Valor por ponto: R$ " + valorPorPonto.toFixed(4) + ")";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Calculadora de Pontos</h2>
+    <label for="valorTransacao">Valor da Transação (R$):</label>
+    <input type="number" id="valorTransacao" step="0.01"><br><br>
+    <label for="numeroPontos">Número de Pontos:</label>
+    <input type="number" id="numeroPontos"><br><br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+  </body>
+</html>
