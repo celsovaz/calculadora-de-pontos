@@ -8,12 +8,12 @@
         var valorTransacao = parseFloat(document.getElementById("valorTransacao").value);
         var numeroPontos = parseInt(document.getElementById("numeroPontos").value);
         var valorPorPonto = valorTransacao / numeroPontos;
-        var limiteValorPorPonto = 35 / 1000; // R$ 35 por milhar
+        var limiteValorPorPonto = 1000 / 35; // R$ 1000/35
         
-        if (valorPorPonto >= limiteValorPorPonto) {
-          document.getElementById("resultado").innerText = "Vale a pena! (Valor por ponto: R$ " + valorPorPonto.toFixed(4) + ")";
+        if (valorPorPonto <= limiteValorPorPonto) {
+          document.getElementById("resultado").innerText = "Vale a pena! (Valor por ponto: R$ " + valorPorPonto.toFixed(2) + ")";
         } else {
-          document.getElementById("resultado").innerText = "Não vale a pena. (Valor por ponto: R$ " + valorPorPonto.toFixed(4) + ")";
+          document.getElementById("resultado").innerText = "Não vale a pena. (Valor por ponto: R$ " + valorPorPonto.toFixed(2) + ")";
         }
       }
     </script>
