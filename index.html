@@ -7,13 +7,12 @@
       function calcular() {
         var valorTransacao = parseFloat(document.getElementById("valorTransacao").value);
         var numeroPontos = parseInt(document.getElementById("numeroPontos").value);
-        var valorPorPonto = valorTransacao / numeroPontos;
-        var limiteValorPorPonto = 1000 / 35; // R$ 1000/35
+        var valorMinimoPorReal = 28.57142857142857; // 1000/35
         
-        if (valorPorPonto <= limiteValorPorPonto) {
-          document.getElementById("resultado").innerText = "Vale a pena! (Valor por ponto: R$ " + valorPorPonto.toFixed(2) + ")";
+        if (numeroPontos >= valorTransacao * valorMinimoPorReal) {
+          document.getElementById("resultado").innerText = "Vale a pena! (Número de pontos por real: " + (numeroPontos / valorTransacao).toFixed(2) + ")";
         } else {
-          document.getElementById("resultado").innerText = "Não vale a pena. (Valor por ponto: R$ " + valorPorPonto.toFixed(2) + ")";
+          document.getElementById("resultado").innerText = "Não vale a pena. (Número de pontos por real: " + (numeroPontos / valorTransacao).toFixed(2) + ")";
         }
       }
     </script>
